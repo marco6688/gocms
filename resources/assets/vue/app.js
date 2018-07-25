@@ -8,23 +8,17 @@
 //require('./bootstrap');
 
 window.Vue = require('vue');
-import VueRouter from 'vue-route';
+
+import VueRouter from 'vue-router';
 Vue.use(VueRouter);
-
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-import store from  './store/';
-import routes from  './routes';
-
+import store from './store/'; // vuex 数据存储所需对象
+import routes from './routes';    // 路由配置文件
+// 实例化路由
 const router = new VueRouter({
     routes
 })
+
 var vm = new Vue({
-    store,
-    router
+  store,
+  router
 }).$mount('#app');

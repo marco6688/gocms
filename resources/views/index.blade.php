@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSPINIA - @yield('title') </title>
+    <title>INSPINIA </title>
 
 
     <link rel="stylesheet" href="{!! asset('css/vendor.css') !!}" />
@@ -25,8 +25,9 @@
             @include('layouts.topnavbar')
 
             <!-- Main view  -->
-            @yield('content')
-
+            <div id="app">
+                <router-view />
+            </div>
             <!-- Footer -->
             @include('layouts.footer')
 

@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/', 'HomeController@index')->name("main");
+
+Route::get('/',function (){
+    return view('index');
+});
 Route::get('/minor', 'HomeController@minor')->name("minor");
+
