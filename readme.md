@@ -3,4 +3,8 @@
 laravel + vue 的cms管理系统
 
 
+npm install 
 
+composer install
+ 
+php artisan migrate

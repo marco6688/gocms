@@ -17,8 +17,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group([
+    'middleware' => 'api',
 
+], function ($router) {
 
-Route::get('/news', 'NewsController@index');
-Route::get('/news/recommend', 'NewsController@recommend');
-Route::get('/news/{id}', 'NewsController@show');
+    Route::get('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::get('me', 'AuthController@me');
+
+});
+
+//
+//Route::get('/news', 'NewsController@index');
+//Route::get('/news/recommend', 'NewsController@recommend');
+//Route::get('/news/{id}', 'NewsController@show');

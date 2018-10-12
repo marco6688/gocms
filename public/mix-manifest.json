@@ -1,3 +1,7 @@
 {
-    "/js/vue.js": "/js/vue.js"
+    "/js/vue.js": "/js/vue.js",
+    "/css/app.css": "/css/app.css",
+    "/css/vendor.css": "/css/vendor.css",
+    "/js/app.js": "/js/app.js",
+    "/js/pro.js": "/js/pro.js"
 }

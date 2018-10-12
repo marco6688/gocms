@@ -25,7 +25,7 @@
             @include('layouts.topnavbar')
 
             <!-- Main view  -->
-            <div id="app">
+            <div >
                 <router-view />
             </div>
             <!-- Footer -->
@@ -39,6 +39,7 @@
 
 <script src="{!! asset('js/app.js') !!}" type="text/javascript"></script>
 <script src="{!! asset('js/vue.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('js/pro.js') !!}" type="text/javascript"></script>
 
 @section('scripts')
 @show

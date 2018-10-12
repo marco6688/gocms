@@ -16,9 +16,9 @@ import routes from './routes';    // 路由配置文件
 // 实例化路由
 const router = new VueRouter({
     routes
-})
+});
 
 var vm = new Vue({
   store,
   router
-}).$mount('#app');
+}).$mount('#wrapper');
