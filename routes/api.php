@@ -21,7 +21,7 @@ Route::group([
     'middleware' => 'api',
 
 ], function ($router) {
-
+    Route::get('/', 'HomeController@index');
     Route::get('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');

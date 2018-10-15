@@ -6,11 +6,14 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 //use App\Notifications\ResetPassword as ResetPasswordNotification;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    use HasRoles;
 
+    protected $guard_name = 'api'; // 使用任何你想要的守卫
 //    protected $hidden = ['password'];
 
     /**
@@ -32,9 +35,5 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-//
-//    public function sendPasswordResetNotification($token)
-//    {
-//        $this->notify(new ResetPasswordNotification($token));
-//    }
+
 }

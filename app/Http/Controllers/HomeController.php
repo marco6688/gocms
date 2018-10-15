@@ -13,7 +13,9 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:api');
+//        dd(auth());
+//        dd($this->getMiddleware());
     }
 
     /**
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+//        dd( auth()->user());
+//        return view('home');
     }
 }

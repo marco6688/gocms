@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', 'HomeController@index');
+
 //
 //Route::get('/',function (){
 //    return view('index');
@@ -23,4 +23,10 @@ Route::get('/minor', 'HomeController@minor')->name("minor");
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group([
+    'middleware' => 'auth:api',
+
+], function ($router) {
+    Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index')->name('home');
+});

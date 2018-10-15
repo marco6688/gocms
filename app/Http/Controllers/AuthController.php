@@ -31,7 +31,10 @@ class AuthController extends Controller
         if (! $token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+        $user = auth("api")->user();
 
+        $user->givePermissionTo('edit articles');
+dd(1);
 //        dd($token);
         return $this->respondWithToken($token);
     }
