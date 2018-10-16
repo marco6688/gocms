@@ -14,7 +14,7 @@ class User extends Authenticatable implements JWTSubject
     use HasRoles;
 
     protected $guard_name = 'api'; // 使用任何你想要的守卫
-//    protected $hidden = ['password'];
+    protected $hidden = ['password'];
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
