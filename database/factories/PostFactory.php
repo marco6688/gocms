@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use Illuminate\Support\Facades\Hash;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -13,11 +13,10 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+
+$factory->define(App\Post::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' =>rand(0,9).'admin@admin.com',
-        'password' => Hash::make('1234qwer'),// secret
-        'remember_token' => str_random(10),
+        'title' => $faker->title,
+        'content' => $faker->paragraph,
     ];
 });

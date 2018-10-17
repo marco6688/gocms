@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
+use App\Role;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +16,6 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        User::
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
@@ -27,15 +28,18 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
+        $aa = auth('api')->attempt($credentials);
 //        dd(auth
 //        dd(auth('api')->user());
         if (! $token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         $user = auth("api")->user();
-
-        $user->givePermissionTo('edit articles');
-dd(1);
+//        $role=Role::create(['name'=>'write']);
+//        $permission = Permission::create(['name'=>'edit articles']);
+        $permission = Permission::all();
+        dd($permission);
+//        $user->givePermissionTo('edit articles');
 //        dd($token);
         return $this->respondWithToken($token);
     }

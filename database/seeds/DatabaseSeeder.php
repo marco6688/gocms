@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use App\Permission;
 use App\Role;
 use App\User;
+use App\Post;
+
 
 
 class DatabaseSeeder extends Seeder
@@ -66,7 +68,7 @@ class DatabaseSeeder extends Seeder
         }
 
         // now lets seed some posts for demo
-        factory(\App\Post::class, 30)->create();
+        factory(App\Post::class, 30)->create();
         $this->command->info('Some Posts data seeded.');
         $this->command->warn('All done :)');
     }
@@ -84,7 +86,7 @@ class DatabaseSeeder extends Seeder
         if( $role->name == 'Admin' ) {
             $this->command->info('Here is your admin details to login:');
             $this->command->warn($user->email);
-            $this->command->warn('Password is "secret"');
+            $this->command->warn('Password is "1234qwer"');
         }
     }
 
