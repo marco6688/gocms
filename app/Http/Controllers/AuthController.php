@@ -6,9 +6,10 @@ use App\Permission;
 use App\Role;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-
+use App\Http\Controllers\Auth\Authorizable;
 class AuthController extends Controller
 {
+    use Authorizable;
     /**
      * Create a new AuthController instance.
      *
@@ -29,6 +30,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         $aa = auth('api')->attempt($credentials);
+//        dd($aa);
 //        dd(auth
 //        dd(auth('api')->user());
         if (! $token = auth('api')->attempt($credentials)) {
@@ -38,7 +40,7 @@ class AuthController extends Controller
 //        $role=Role::create(['name'=>'write']);
 //        $permission = Permission::create(['name'=>'edit articles']);
         $permission = Permission::all();
-        dd($permission);
+//        dd($permission);
 //        $user->givePermissionTo('edit articles');
 //        dd($token);
         return $this->respondWithToken($token);

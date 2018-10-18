@@ -22,7 +22,7 @@ Route::group([
 
 ], function ($router) {
     Route::get('/', 'HomeController@index');
-    Route::get('login', 'AuthController@login');
+    Route::get('login', 'AuthController@login')->name("login");
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::get('me', 'AuthController@me');
