@@ -12,7 +12,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasRoles,Notifiable;
 
-    protected $guard_name = 'web'; // 使用任何你想要的守卫
+    protected $guard_name = 'api'; // 使用任何你想要的守卫
     protected $hidden = ['password'];
     protected $guarded = [];
     /**

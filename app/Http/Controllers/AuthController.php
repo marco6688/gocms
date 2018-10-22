@@ -6,10 +6,10 @@ use App\Permission;
 use App\Role;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Auth\Authorizable;
+//use App\Http\Controllers\Auth\Authorizable;
 class AuthController extends Controller
 {
-    use Authorizable;
+//    use Authorizable;
     /**
      * Create a new AuthController instance.
      *
@@ -17,7 +17,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api',['except' => ['login']]);
+        $this->middleware('auth.api',['except' => ['login']]);
     }
 
     /**
@@ -37,11 +38,22 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
         $user = auth("api")->user();
-//        $role=Role::create(['name'=>'write']);
-//        $permission = Permission::create(['name'=>'edit articles']);
-        $permission = Permission::all();
+//        $role=Role::create(['name'=>'write1','guard_name'=>'api']);
+//        $role=Role::findByName('write','api');
+//        $permission = Permission::create(['guard_name'=>'api','name'=>'del articles']);
+//        $permission = Permission::findByName('del articles','api');
 //        dd($permission);
-//        $user->givePermissionTo('edit articles');
+//        $role->givePermissionTo($permission);
+//        $user->hasPermissionTo('发表文章','edit articles');
+//        $permission = Permission::all();
+//dd(Role::findByName('write','api'));
+//        $user->assignRole('write');
+//                ($user->getRoleNames());
+
+//        dd($permission);
+//        dd($this->authorize('del articles'));
+//        dd($user->can());
+//        dd($user);
 //        dd($token);
         return $this->respondWithToken($token);
     }
